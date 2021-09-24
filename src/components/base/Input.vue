@@ -1,8 +1,15 @@
 <template>
-<div>
-  <input v-if="callback" type="text" @keypress.enter="callback">
-  <input v-else type="text">
-</div>
+  <div>
+    <input
+      v-if="callback"
+      type="text"
+      @keypress.enter="callback"
+    >
+    <input
+      v-else
+      type="text"
+    >
+  </div>
 </template>
 
 <script>
@@ -12,6 +19,7 @@ export default {
   props: {
     callback: {
       type: Function,
+      default: null,
     },
   },
 };
