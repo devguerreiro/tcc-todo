@@ -11,20 +11,24 @@
         >
           {{ tarefa }}
         </li>
-        <span @click="marcarComoConcluida(index)" />
+        <span @click="concluirTarefa(index)" />
       </div>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
+
 export default {
   name: 'ListarAFazer',
 
+  computed: {
+    ...mapState(['tarefasAFazer']),
+  },
+
   methods: {
-    marcarComoConcluida(index) {
-      this.tarefasAFazer.splice(index, 1);
-    },
+    ...mapActions(['concluirTarefa']),
   },
 };
 </script>
