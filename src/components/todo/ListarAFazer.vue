@@ -2,16 +2,16 @@
   <div>
     <ul>
       <div
-        v-for="(tarefa, index) in tarefasAFazer"
-        :key="index"
+        v-for="(tarefa, indice) in tarefasAFazer"
+        :key="indice"
       >
         <li
-          :todo-id="index"
+          :todo-id="indice"
           todo-tarefaAFazer
         >
           {{ tarefa }}
         </li>
-        <span @click="concluirTarefa(index)" />
+        <span @click="concluirTarefa(indice)" />
       </div>
     </ul>
   </div>

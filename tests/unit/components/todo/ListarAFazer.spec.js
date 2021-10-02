@@ -14,7 +14,7 @@ describe('ListarAFazer', () => {
     expect(wrapper.findAll('li[todo-tarefaAFazer]').length).toBe(tarefasAFazer().length);
   });
 
-  it('deve permitir concluir uma tarefa', async () => {
+  it('deve permitir concluir uma tarefa pendente', async () => {
     const $store = {
       state: {
         tarefasAFazer: ['Tarefa 1'],
