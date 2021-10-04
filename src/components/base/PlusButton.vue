@@ -4,22 +4,18 @@
       tabindex="0"
       @click="callback"
     >
-      <svg
-        style="width:24px;height:24px"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="currentColor"
-          d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z"
-        />
-      </svg>
+      <base-plus-icon />
     </span>
   </div>
 </template>
 
 <script>
+import BasePlusIcon from '@/components/base/PlusIcon.vue';
+
 export default {
   name: 'PlusButton',
+
+  components: { BasePlusIcon },
 
   props: {
     callback: {
