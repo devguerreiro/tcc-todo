@@ -13,7 +13,7 @@ describe('BasePlusButton', () => {
       },
     });
 
-    // act -> quando for pressionado a tecla ENTER dentro do input
+    // act -> quando for clicado
     await wrapper.find('span').trigger('click');
 
     // assert -> então a função passada como propriedade deve ser chamada
