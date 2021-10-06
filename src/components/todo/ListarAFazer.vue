@@ -1,19 +1,26 @@
 <template>
   <div>
-    <ul>
-      <div
-        v-for="(tarefa, indice) in tarefasAFazer"
-        :key="indice"
-      >
-        <li
-          :todo-id="indice"
-          todo-tarefaAFazer
+    <div>
+      <h2 id="todo-title">
+        Pendentes
+      </h2>
+    </div>
+    <div>
+      <ul>
+        <div
+          v-for="(tarefa, indice) in tarefasAFazer"
+          :key="indice"
         >
-          {{ tarefa }}
-        </li>
-        <span @click="concluirTarefa(indice)" />
-      </div>
-    </ul>
+          <li
+            :todo-id="indice"
+            todo-tarefa-a-fazer
+          >
+            {{ tarefa }}
+          </li>
+          <span @click="concluirTarefa(indice)" />
+        </div>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -32,3 +39,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#todo-title {
+  color: var(--todo-red)
+}
+</style>

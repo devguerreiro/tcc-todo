@@ -8,10 +8,13 @@
 * {
   box-sizing: border-box;
 }
-body {
-  margin: 0;
+html {
   font-family: 'Montserrat', sans-serif;
   font-display: swap;
+  font-size: 16px;
+}
+html, body {
+  margin: 0;
 }
 #app {
   --todo-red: #FF2345;
@@ -25,6 +28,9 @@ body {
 }
 .justify-evenly {
   justify-content: space-evenly;
+}
+.justify-between {
+  justify-content: space-between;
 }
 .align-end {
   align-items: flex-end;

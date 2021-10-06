@@ -2,13 +2,15 @@
   <div>
     <input
       v-if="callback"
+      v-model="inputValue"
       type="text"
       autofocus
       :placeholder="placeholder"
-      @keypress.enter="callback"
+      @keypress.enter="callback(inputValue)"
     >
     <input
       v-else
+      v-model="inputValue"
       type="text"
       autofocus
       :placeholder="placeholder"
@@ -29,6 +31,12 @@ export default {
       type: String,
       default: 'Placeholder',
     },
+  },
+
+  data() {
+    return {
+      inputValue: '',
+    };
   },
 };
 </script>

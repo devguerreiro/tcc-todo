@@ -18,7 +18,7 @@ describe('ListarConcluidas', () => {
     });
 
     // assert -> então deve renderizar as duas tarefas
-    expect(wrapper.findAll('li[todo-tarefaConcluida]').length).toBe($store.state.tarefasConcluidas.length);
+    expect(wrapper.findAll('li[todo-tarefa-concluida]').length).toBe($store.state.tarefasConcluidas.length);
   });
 
   it('deve permitir refazer uma tarefa concluída', async () => {
@@ -37,7 +37,7 @@ describe('ListarConcluidas', () => {
     });
 
     // act -> quando for clicado no botão de refazer tarefa
-    await wrapper.find('li[todo-tarefaConcluida] + span').trigger('click');
+    await wrapper.find('li[todo-tarefa-concluida] + span').trigger('click');
 
     // assert -> então o dispatch deve chamar a action passando o índice da tarefa como argumento
     expect($store.dispatch).toHaveBeenCalledWith('refazerTarefa', 0);

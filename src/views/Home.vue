@@ -40,7 +40,9 @@ export default {
   components: { BaseInput, BasePlusButton },
 
   methods: {
-    addTask() {},
+    addTask() {
+      this.$router.push({ name: 'Tasks' });
+    },
   },
 };
 </script>

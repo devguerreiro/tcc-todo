@@ -14,7 +14,7 @@ describe('ListarAFazer', () => {
     });
 
     // assert -> então deve renderizar as duas tarefas
-    expect(wrapper.findAll('li[todo-tarefaAFazer]').length).toBe(tarefasAFazer().length);
+    expect(wrapper.findAll('li[todo-tarefa-a-fazer]').length).toBe(tarefasAFazer().length);
   });
 
   it('deve permitir concluir uma tarefa pendente', async () => {
