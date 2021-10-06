@@ -5,4 +5,7 @@ export default {
   refazerTarefa: ({ commit }, tarefaIndice) => {
     commit('REFAZER_TAREFA', tarefaIndice);
   },
+  addTarefa: ({ commit }, tarefa) => {
+    commit('ADD_TAREFA', tarefa);
+  },
 };

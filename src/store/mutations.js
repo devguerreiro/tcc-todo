@@ -5,4 +5,7 @@ export default {
   REFAZER_TAREFA: (state, tarefaIndice) => {
     state.tarefasConcluidas.splice(tarefaIndice, 1);
   },
+  ADD_TAREFA: (state, tarefa) => {
+    state.tarefasAFazer.push(tarefa);
+  },
 };

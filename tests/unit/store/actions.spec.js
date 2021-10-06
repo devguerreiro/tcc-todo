@@ -16,4 +16,12 @@ describe('Actions', () => {
 
     expect(commit).toHaveBeenCalledWith('REFAZER_TAREFA', 0);
   });
+
+  it('deve fazer o commit para adicionar uma tarefa na lista de pendentes', () => {
+    const commit = jest.fn();
+
+    actions.addTarefa({ commit }, 'Tarefa 1');
+
+    expect(commit).toHaveBeenCalledWith('ADD_TAREFA', 'Tarefa 1');
+  });
 });
