@@ -8,16 +8,16 @@
     <div>
       <ul>
         <div
-          v-for="(tarefa, indice) in tarefasAFazer"
-          :key="indice"
+          v-for="(task, index) in toDoTasks"
+          :key="index"
         >
           <li
-            :todo-id="indice"
-            todo-tarefa-a-fazer
+            :todo-id="index"
+            todo-task
           >
-            {{ tarefa }}
+            {{ task }}
           </li>
-          <span @click="concluirTarefa(indice)" />
+          <span @click="endTask(index)" />
         </div>
       </ul>
     </div>
@@ -28,14 +28,14 @@
 import { mapActions, mapState } from 'vuex';
 
 export default {
-  name: 'ListarAFazer',
+  name: 'ListTodoTasks',
 
   computed: {
-    ...mapState(['tarefasAFazer']),
+    ...mapState(['toDoTasks']),
   },
 
   methods: {
-    ...mapActions(['concluirTarefa']),
+    ...mapActions(['endTask']),
   },
 };
 </script>

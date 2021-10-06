@@ -4,24 +4,24 @@ describe('Actions', () => {
   it('deve fazer o commit da conclusão da tarefa do índice informado', () => {
     const commit = jest.fn();
 
-    actions.concluirTarefa({ commit }, 0);
+    actions.endTask({ commit }, 0);
 
-    expect(commit).toHaveBeenCalledWith('CONCLUIR_TAREFA', 0);
+    expect(commit).toHaveBeenCalledWith('END_TASK', 0);
   });
 
   it('deve fazer o commit da refação da tarefa do índice informado', () => {
     const commit = jest.fn();
 
-    actions.refazerTarefa({ commit }, 0);
+    actions.redoTask({ commit }, 0);
 
-    expect(commit).toHaveBeenCalledWith('REFAZER_TAREFA', 0);
+    expect(commit).toHaveBeenCalledWith('REDO_TASK', 0);
   });
 
   it('deve fazer o commit para adicionar uma tarefa na lista de pendentes', () => {
     const commit = jest.fn();
 
-    actions.addTarefa({ commit }, 'Tarefa 1');
+    actions.addTask({ commit }, 'Tarefa 1');
 
-    expect(commit).toHaveBeenCalledWith('ADD_TAREFA', 'Tarefa 1');
+    expect(commit).toHaveBeenCalledWith('ADD_TASK', 'Tarefa 1');
   });
 });

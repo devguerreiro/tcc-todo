@@ -8,16 +8,16 @@
     <div>
       <ul>
         <div
-          v-for="(tarefa, indice) in tarefasConcluidas"
-          :key="indice"
+          v-for="(task, index) in completedTasks"
+          :key="index"
         >
           <li
-            :todo-index="indice"
-            todo-tarefa-concluida
+            :todo-index="index"
+            completed-task
           >
-            {{ tarefa }}
+            {{ task }}
           </li>
-          <span @click="refazerTarefa(indice)" />
+          <span @click="redoTask(index)" />
         </div>
       </ul>
     </div>
@@ -28,14 +28,14 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  name: 'ListarConcluidas',
+  name: 'ListCompletedTasks',
 
   computed: {
-    ...mapState(['tarefasConcluidas']),
+    ...mapState(['completedTasks']),
   },
 
   methods: {
-    ...mapActions(['refazerTarefa']),
+    ...mapActions(['redoTask']),
   },
 };
 </script>

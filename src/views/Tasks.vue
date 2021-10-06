@@ -9,15 +9,15 @@
       <div id="todo-add">
         <base-input
           placeholder="Insira aqui outra tarefa..."
-          :callback="addTarefa"
+          :callback="addTask"
         />
       </div>
       <div
         id="todo-list"
         class="flex justify-between"
       >
-        <listar-a-fazer />
-        <listar-concluidas />
+        <list-todo-tasks />
+        <list-completed-tasks />
       </div>
     </main>
   </div>
@@ -27,16 +27,16 @@
 import { mapActions } from 'vuex';
 
 import BaseInput from '@/components/base/Input.vue';
-import ListarAFazer from '../components/todo/ListarAFazer.vue';
-import ListarConcluidas from '../components/todo/ListarConcluidas.vue';
+import ListTodoTasks from '../components/todo/ListTodoTasks.vue';
+import ListCompletedTasks from '../components/todo/ListCompletedTasks.vue';
 
 export default {
   name: 'Tasks',
 
-  components: { BaseInput, ListarAFazer, ListarConcluidas },
+  components: { BaseInput, ListTodoTasks, ListCompletedTasks },
 
   methods: {
-    ...mapActions(['addTarefa']),
+    ...mapActions(['addTask']),
   },
 };
 </script>

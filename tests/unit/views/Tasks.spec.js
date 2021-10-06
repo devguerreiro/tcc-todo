@@ -6,8 +6,8 @@ describe('Tasks', () => {
     // arrange -> dado uma tarefa pendente e uma tarefa concluída armazenada no state
     const $store = {
       state: {
-        tarefasAFazer: ['Tarefa 2'],
-        tarefasConcluidas: ['Tarefa 1'],
+        toDoTasks: ['Tarefa 2'],
+        completedTasks: ['Tarefa 1'],
       },
     };
     const wrapper = mount(Tasks, {
@@ -17,8 +17,8 @@ describe('Tasks', () => {
     });
 
     // assert -> então o componente deve renderizar as tarefas pendentes e as tarefas concluídas
-    expect(wrapper.findAll('li[todo-tarefa-a-fazer]').length).toBe(1);
-    expect(wrapper.findAll('li[todo-tarefa-concluida]').length).toBe(1);
+    expect(wrapper.findAll('li[todo-task]').length).toBe(1);
+    expect(wrapper.findAll('li[completed-task]').length).toBe(1);
   });
 
   it('deve fazer o dispatch para adicionar uma nova tarefa na lista de pendentes', async () => {
@@ -42,6 +42,6 @@ describe('Tasks', () => {
     await input.trigger('keypress.enter');
 
     // assert -> então deve fazer o dispatch para adicionar a tarefa na lista de pendências
-    expect($store.dispatch).toHaveBeenCalledWith('addTarefa', 'Tarefa 1');
+    expect($store.dispatch).toHaveBeenCalledWith('addTask', 'Tarefa 1');
   });
 });

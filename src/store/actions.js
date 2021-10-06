@@ -1,11 +1,11 @@
 export default {
-  concluirTarefa: ({ commit }, tarefaIndice) => {
-    commit('CONCLUIR_TAREFA', tarefaIndice);
+  endTask: ({ commit }, taskIndex) => {
+    commit('END_TASK', taskIndex);
   },
-  refazerTarefa: ({ commit }, tarefaIndice) => {
-    commit('REFAZER_TAREFA', tarefaIndice);
+  redoTask: ({ commit }, taskIndex) => {
+    commit('REDO_TASK', taskIndex);
   },
-  addTarefa: ({ commit }, tarefa) => {
-    commit('ADD_TAREFA', tarefa);
+  addTask: ({ commit }, task) => {
+    commit('ADD_TASK', task);
   },
 };

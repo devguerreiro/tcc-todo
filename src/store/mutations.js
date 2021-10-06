@@ -1,15 +1,15 @@
 export default {
-  CONCLUIR_TAREFA: (state, tarefaIndice) => {
-    const task = state.tarefasAFazer.splice(tarefaIndice, 1);
+  END_TASK: (state, taskIndex) => {
+    const task = state.toDoTasks.splice(taskIndex, 1);
 
-    state.tarefasConcluidas.push(task);
+    state.completedTasks.push(task);
   },
-  REFAZER_TAREFA: (state, tarefaIndice) => {
-    const task = state.tarefasConcluidas.splice(tarefaIndice, 1);
+  REDO_TASK: (state, taskIndex) => {
+    const task = state.completedTasks.splice(taskIndex, 1);
 
-    state.tarefasAFazer.push(task);
+    state.toDoTasks.push(task);
   },
-  ADD_TAREFA: (state, tarefa) => {
-    state.tarefasAFazer.push(tarefa);
+  ADD_TASK: (state, task) => {
+    state.toDoTasks.push(task);
   },
 };
