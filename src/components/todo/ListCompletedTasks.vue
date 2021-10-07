@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="text-center">
       <h2 id="completed-title">
         Concluídas
       </h2>
@@ -10,6 +10,7 @@
         <div
           v-for="(task, index) in completedTasks"
           :key="index"
+          class="flex justify-evenly align-center"
         >
           <li
             :todo-index="index"
@@ -17,7 +18,10 @@
           >
             {{ task }}
           </li>
-          <i @click="redoTask(index)">
+          <i
+            class="redo-task-icon flex"
+            @click="redoTask(index)"
+          >
             <svg
               style="width:24px;height:24px"
               viewBox="0 0 24 24"
@@ -56,7 +60,7 @@ export default {
 #completed-title {
   color: var(--todo-green)
 }
-i {
+i.redo-task-icon {
   cursor: pointer;
   color: var(--todo-red);
 }

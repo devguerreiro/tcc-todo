@@ -16,8 +16,8 @@
         id="todo-list"
         class="flex justify-between"
       >
-        <list-todo-tasks />
-        <list-completed-tasks />
+        <list-todo-tasks id="list-todo-tasks" />
+        <list-completed-tasks id="list-completed-tasks" />
       </div>
     </main>
   </div>
@@ -49,6 +49,9 @@ export default {
 #todo-add {
   width: 33.3%;
   margin: 0 auto;
+}
+#list-todo-tasks, #list-completed-tasks {
+  width: 25%;
 }
 .container {
   width: 100%;

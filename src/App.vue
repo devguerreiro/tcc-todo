@@ -20,6 +20,10 @@ html, body {
   --todo-red: #FF2345;
   --todo-green: #46FF88;
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 .flex {
   display: flex;
 }
@@ -31,6 +35,9 @@ html, body {
 }
 .justify-between {
   justify-content: space-between;
+}
+.align-center {
+  align-items: center;
 }
 .align-end {
   align-items: flex-end;

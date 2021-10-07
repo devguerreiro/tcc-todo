@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="text-center">
       <h2 id="todo-title">
         Pendentes
       </h2>
@@ -10,6 +10,7 @@
         <div
           v-for="(task, index) in toDoTasks"
           :key="index"
+          class="flex justify-evenly align-center"
         >
           <li
             :todo-id="index"
@@ -17,7 +18,10 @@
           >
             {{ task }}
           </li>
-          <i @click="endTask(index)">
+          <i
+            class="end-task-icon flex"
+            @click="endTask(index)"
+          >
             <svg
               style="width:24px;height:24px"
               viewBox="0 0 24 24"
@@ -54,7 +58,7 @@ export default {
 #todo-title {
   color: var(--todo-red)
 }
-i {
+i.end-task-icon {
   cursor: pointer;
   color: var(--todo-green);
 }
