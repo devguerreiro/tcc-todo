@@ -6,7 +6,7 @@
       type="text"
       autofocus
       :placeholder="placeholder"
-      @keypress.enter="callback(inputValue)"
+      @keypress.enter="handleCallback(inputValue)"
     >
     <input
       v-else
@@ -37,6 +37,14 @@ export default {
     return {
       inputValue: '',
     };
+  },
+
+  methods: {
+    handleCallback(inputValue) {
+      this.callback(inputValue);
+
+      this.inputValue = '';
+    },
   },
 };
 </script>

@@ -41,4 +41,20 @@ describe('BaseInput', () => {
     // assert -> então a função passada como propriedade deve ser chamada
     expect(callback).toHaveBeenCalled();
   });
+
+  it('deve limpar o input após pressionar ENTER', async () => {
+    const wrapper = mount(BaseInput, {
+      propsData: {
+        callback: jest.fn(),
+      },
+    });
+
+    const input = wrapper.find('input');
+
+    await input.setValue('Tarefa 1');
+    await input.trigger('keypress.enter');
+
+    expect(input.element.value).toEqual('');
+    expect(wrapper.vm.inputValue).toEqual('');
+  });
 });
