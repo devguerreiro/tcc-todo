@@ -1,11 +1,11 @@
 <template>
   <div>
-    <span
+    <i
       tabindex="0"
       @click="callback"
     >
       <base-plus-icon />
-    </span>
+    </i>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style scoped>
-span {
+i {
   color: var(--todo-green);
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@ span {
   border: solid 1px var(--todo-green);
   border-radius: 20%;
 }
-span:hover {
+i:hover {
   background-color: var(--todo-green);
   color: #fff;
 }
