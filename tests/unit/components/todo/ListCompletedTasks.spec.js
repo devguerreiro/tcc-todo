@@ -37,7 +37,7 @@ describe('ListCompletedTasks', () => {
     });
 
     // act -> quando for clicado no botão de refazer tarefa
-    await wrapper.find('li[completed-task] + span').trigger('click');
+    await wrapper.find('li[completed-task] + i').trigger('click');
 
     // assert -> então o dispatch deve chamar a action passando o índice da tarefa como argumento
     expect($store.dispatch).toHaveBeenCalledWith('redoTask', 0);

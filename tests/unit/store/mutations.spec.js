@@ -10,7 +10,10 @@ describe('Mutations', () => {
     mutations.END_TASK(state, 0);
 
     expect(state.toDoTasks.length).toBe(0);
+    expect(state.toDoTasks).toEqual([]);
+
     expect(state.completedTasks.length).toBe(1);
+    expect(state.completedTasks).toEqual(['Tarefa 1']);
   });
 
   it('deve remover da lista de tarefas concluídas e adicionar na lista de pendentes', () => {
@@ -22,7 +25,10 @@ describe('Mutations', () => {
     mutations.REDO_TASK(state, 0);
 
     expect(state.completedTasks.length).toBe(0);
+    expect(state.completedTasks).toEqual([]);
+
     expect(state.toDoTasks.length).toBe(1);
+    expect(state.toDoTasks).toEqual(['Tarefa 1']);
   });
 
   it('deve adicionar uma tarefa na lista de pendentes', () => {

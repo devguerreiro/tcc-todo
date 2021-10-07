@@ -33,7 +33,7 @@ describe('ListTodoTasks', () => {
     });
 
     // act -> quando for clicado no botão de concluir tarefa
-    await wrapper.find('li[todo-id="0"] + span').trigger('click');
+    await wrapper.find('li[todo-id="0"] + i').trigger('click');
 
     // assert -> então o dispatch deve chamar a action passando o índice da tarefa como argumento
     expect($store.dispatch).toHaveBeenCalledWith('endTask', 0);
