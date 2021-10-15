@@ -12,6 +12,6 @@
 
 <script>
 export default {
-  name: 'PlusIcon',
+  name: 'BasePlusIcon',
 };
 </script>

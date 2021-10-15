@@ -15,7 +15,9 @@
         </header>
         <main>
           <base-input
+            ref="input"
             placeholder="Insira aqui sua tarefa..."
+            :callback="handleAddTask"
           />
         </main>
       </div>
@@ -23,7 +25,7 @@
         class="flex align-end"
       >
         <base-plus-button
-          :callback="addTask"
+          :callback="() => handleAddTask($refs.input.inputValue)"
         />
       </div>
     </div>
@@ -31,6 +33,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import BaseInput from '@/components/base/Input.vue';
 import BasePlusButton from '@/components/base/PlusButton.vue';
 
@@ -40,7 +44,11 @@ export default {
   components: { BaseInput, BasePlusButton },
 
   methods: {
-    addTask() {
+    ...mapActions(['addTask']),
+
+    handleAddTask(task) {
+      this.addTask(task);
+
       this.$router.push({ name: 'Tasks' });
     },
   },

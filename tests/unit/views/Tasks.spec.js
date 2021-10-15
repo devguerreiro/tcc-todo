@@ -10,6 +10,8 @@ describe('Tasks', () => {
         completedTasks: ['Tarefa 1'],
       },
     };
+
+    // act -> quando o componente for montado
     const wrapper = mount(Tasks, {
       mocks: {
         $store,
@@ -21,7 +23,7 @@ describe('Tasks', () => {
     expect(wrapper.findAll('li[completed-task]').length).toBe(1);
   });
 
-  it('deve fazer o dispatch para adicionar uma nova tarefa na lista de pendentes', async () => {
+  it('deve fazer o dispatch para adicionar uma nova tarefa na lista de pendentes ao pressionar ENTER', async () => {
     // arrange -> dado uma store com dispatch 'mockado'
     const $store = {
       state: {},
@@ -37,7 +39,7 @@ describe('Tasks', () => {
     // arrange -> dado o input na tela de tarefas
     const input = wrapper.findComponent({ name: 'BaseInput' }).find('input');
 
-    // act -> quando chamar a callback
+    // act -> quando digitar a tarefa e pressionar ENTER
     await input.setValue('Tarefa 1');
     await input.trigger('keypress.enter');
 

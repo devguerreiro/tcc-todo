@@ -13,7 +13,7 @@
 import BasePlusIcon from '@/components/base/PlusIcon.vue';
 
 export default {
-  name: 'PlusButton',
+  name: 'BasePlusButton',
 
   components: { BasePlusIcon },
 
