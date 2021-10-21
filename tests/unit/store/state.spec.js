@@ -5,12 +5,12 @@ describe('States', () => {
     const { toDoTasks } = store.state;
 
     expect(toDoTasks).not.toBeUndefined();
-    expect(Array.isArray(toDoTasks)).toBeTruthy();
+    expect(Array.isArray(JSON.parse(toDoTasks))).toBeTruthy();
   });
   it('deve conter um state para armazenar as tarefas concluídas', () => {
     const { completedTasks } = store.state;
 
     expect(completedTasks).not.toBeUndefined();
-    expect(Array.isArray(completedTasks)).toBeTruthy();
+    expect(Array.isArray(JSON.parse(completedTasks))).toBeTruthy();
   });
 });

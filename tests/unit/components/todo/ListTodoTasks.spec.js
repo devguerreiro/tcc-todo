@@ -18,9 +18,9 @@ describe('ListTodoTasks', () => {
   });
 
   it('deve permitir concluir uma tarefa pendente', async () => {
-    // arrange -> dado uma tarefa a fazer armazenada no state
+    // arrange -> dado uma tarefa a fazer retornada pelo getter
     const $store = {
-      state: {
+      getters: {
         toDoTasks: ['Tarefa 1'],
       },
       dispatch: jest.fn(),

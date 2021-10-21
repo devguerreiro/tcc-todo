@@ -39,13 +39,13 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'ListTodoTasks',
 
   computed: {
-    ...mapState(['toDoTasks']),
+    ...mapGetters(['toDoTasks']),
   },
 
   methods: {

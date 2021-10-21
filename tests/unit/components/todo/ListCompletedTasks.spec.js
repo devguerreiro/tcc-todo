@@ -3,9 +3,9 @@ import ListCompletedTasks from '@/components/todo/ListCompletedTasks.vue';
 
 describe('ListCompletedTasks', () => {
   it('deve listar as tarefas concluídas', () => {
-    // arrange -> dado duas tarefas concluídas armazenadas no state
+    // arrange -> dado duas tarefas concluídas retornadas pelo getter
     const $store = {
-      state: {
+      getters: {
         completedTasks: ['Tarefa 1', 'Tarefa 2'],
       },
     };
@@ -18,13 +18,13 @@ describe('ListCompletedTasks', () => {
     });
 
     // assert -> então deve renderizar as duas tarefas
-    expect(wrapper.findAll('li[completed-task]').length).toBe($store.state.completedTasks.length);
+    expect(wrapper.findAll('li[completed-task]').length).toBe($store.getters.completedTasks.length);
   });
 
   it('deve permitir refazer uma tarefa concluída', async () => {
-    // arrange -> dado uma tarefa concluída armazenadas no state
+    // arrange -> dado uma tarefa concluída retornada pelo getter
     const $store = {
-      state: {
+      getters: {
         completedTasks: ['Tarefa 1'],
       },
       dispatch: jest.fn(),

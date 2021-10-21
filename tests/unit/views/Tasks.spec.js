@@ -3,9 +3,9 @@ import Tasks from '@/views/Tasks.vue';
 
 describe('Tasks', () => {
   it('deve renderizar as tarefas pendentes e concluídas', () => {
-    // arrange -> dado uma tarefa pendente e uma tarefa concluída armazenada no state
+    // arrange -> dado uma tarefa pendente e uma tarefa concluída retornada pelo getter
     const $store = {
-      state: {
+      getters: {
         toDoTasks: ['Tarefa 2'],
         completedTasks: ['Tarefa 1'],
       },
@@ -26,7 +26,10 @@ describe('Tasks', () => {
   it('deve fazer o dispatch para adicionar uma nova tarefa na lista de pendentes ao pressionar ENTER', async () => {
     // arrange -> dado uma store com dispatch 'mockado'
     const $store = {
-      state: {},
+      getters: {
+        toDoTasks: '',
+        completedTasks: '',
+      },
       dispatch: jest.fn(),
     };
 
