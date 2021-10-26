@@ -47,9 +47,13 @@ export default {
     ...mapActions(['addTask']),
 
     handleAddTask(task) {
-      this.addTask(task);
+      const taskWithNoSpaces = task.trim();
 
-      this.$router.push({ name: 'Tasks' });
+      if (taskWithNoSpaces) {
+        this.addTask(task);
+
+        this.$router.push({ name: 'Tasks' });
+      }
     },
   },
 };

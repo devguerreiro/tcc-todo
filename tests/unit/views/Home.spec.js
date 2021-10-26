@@ -80,9 +80,71 @@ describe('Home', () => {
     });
 
     // act -> quando chamar a função para adicionar uma tarefa
-    wrapper.vm.handleAddTask();
+    wrapper.vm.handleAddTask('Tarefa 1');
 
     // assert -> então deve redirecionar para a rota de tarefas
     expect($router.push).toHaveBeenCalledWith({ name: 'Tasks' });
+  });
+
+  it('não deve fazer o dispatch para adicionar uma nova tarefa na lista de pendentes quando o input for vazio', async () => {
+    // arrange -> dado uma store com dispatch 'mockado'
+    const $store = {
+      dispatch: jest.fn(),
+    };
+
+    // arrange -> dado um router com o push 'mockado'
+    const $router = {
+      push: jest.fn(),
+    };
+
+    const wrapper = mount(Home, {
+      mocks: {
+        $store,
+        $router,
+      },
+    });
+
+    // arrange -> dado que o input na tela principal está vazio
+    wrapper.findComponent({ name: 'BaseInput' }).find('input');
+
+    // arrange -> dado o botão na tela principal
+    const button = wrapper.findComponent({ name: 'BasePlusButton' }).find('i');
+
+    // act -> quando clicar no botão
+    await button.trigger('click');
+
+    // assert -> então não deve fazer o dispatch para adicionar a tarefa na lista de pendências
+    expect($store.dispatch).toHaveBeenCalledTimes(0);
+  });
+
+  it('não deve redirecionar para a tela de tarefas quando o input for vazio', async () => {
+    // arrange -> dado uma store com dispatch 'mockado'
+    const $store = {
+      dispatch: jest.fn(),
+    };
+
+    // arrange -> dado um router com o push 'mockado'
+    const $router = {
+      push: jest.fn(),
+    };
+
+    const wrapper = mount(Home, {
+      mocks: {
+        $store,
+        $router,
+      },
+    });
+
+    // arrange -> dado que o input na tela principal está vazio
+    wrapper.findComponent({ name: 'BaseInput' }).find('input');
+
+    // arrange -> dado o botão na tela principal
+    const button = wrapper.findComponent({ name: 'BasePlusButton' }).find('i');
+
+    // act -> quando clicar no botão
+    await button.trigger('click');
+
+    // assert -> então não deve redirecionar para a rota de tarefas
+    expect($router.push).toHaveBeenCalledTimes(0);
   });
 });

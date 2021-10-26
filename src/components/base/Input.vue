@@ -6,7 +6,7 @@
       type="text"
       autofocus
       :placeholder="placeholder"
-      @keypress.enter="handleCallback(inputValue)"
+      @keypress.enter="handleCallback"
     >
     <input
       v-else
@@ -40,10 +40,14 @@ export default {
   },
 
   methods: {
-    handleCallback(inputValue) {
-      this.callback(inputValue);
+    handleCallback() {
+      const inputWithNoSpaces = this.inputValue.trim();
 
-      this.inputValue = '';
+      if (inputWithNoSpaces) {
+        this.callback(inputWithNoSpaces);
+
+        this.inputValue = '';
+      }
     },
   },
 };
